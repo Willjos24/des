@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Evaluar con el Co-razón</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-node {
+            background-color: #EDC951;
+            color: #333;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .flow-arrow {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.5rem;
+            height: 2rem;
+            background-color: #EB6841;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+        }
+        .flow-arrow-horizontal {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 0.5rem;
+            background-color: #EB6841;
+            clip-path: polygon(100% 50%, 0 0, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-[#00A0B0] text-gray-800">
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="text-center my-12 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight">Evaluar con el <span class="text-[#EDC951]">Co-razón</span></h1>
+            <p class="mt-4 text-lg md:text-xl text-white/90">Análisis del pensamiento de Miguel Ángel Santos Guerra</p>
+        </header>
+
+        <main>
+            <section id="problema" class="bg-white/90 rounded-2xl shadow-2xl p-6 md:p-10 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-[#CC333F] mb-4">El Problema: La Desconexión en la Evaluación</h2>
+                        <p class="text-base leading-relaxed text-gray-700">
+                            Santos Guerra señala una paradoja en la educación: la escuela siempre ha sido el "reino de lo cognitivo", dejando de lado los sentimientos. Esto se refleja en la evaluación, donde se evalúa con frecuencia, pero los cambios profundos son raros. El gráfico muestra la gran brecha entre la actividad de evaluar y el impacto real que debería generar.
+                        </p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="disconnectionChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="paradigma" class="bg-white/90 rounded-2xl shadow-2xl p-6 md:p-10 mb-12">
+                <div class="text-center">
+                    <h2 class="text-3xl font-bold text-[#CC333F] mb-4">El Nuevo Paradigma: Evaluar es Comprender</h2>
+                    <p class="text-base leading-relaxed text-gray-700 max-w-3xl mx-auto mb-8">
+                        La evaluación debe ser entendida como un proceso continuo y no como un momento final. Este cambio de paradigma implica pasar de una mentalidad de juicio a una de mejora, centrada en la transformación y el valor, no solo en la perfección de los instrumentos.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="flow-node bg-[#EDC951]">Proceso de Evaluación</div>
+                        <div class="flow-arrow rotate-180 mb-2 mt-2"></div>
+                        <div class="flow-node bg-[#EB6841] text-white">Momento Final</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="flow-node bg-[#EB6841] text-white">Evaluar es...</div>
+                        <div class="flow-arrow rotate-180 mb-2 mt-2"></div>
+                        <div class="flow-node bg-[#EDC951]">Comprender</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="flow-node bg-[#EDC951]">Perfeccionamiento de los Instrumentos</div>
+                        <div class="flow-arrow rotate-180 mb-2 mt-2"></div>
+                        <div class="flow-node bg-[#EB6841] text-white">Transformación de su Uso y Valor</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="desafios" class="mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-[#6A4A3C] mb-4">Los Desafíos del Cambio</h3>
+                        <p class="mb-4 text-gray-600">La transformación de la evaluación no es automática. Enfrenta una fuerte resistencia de las exigencias sociales basadas en la competitividad. Este gráfico muestra la tensión entre las fuerzas que impulsan el cambio y la inercia que mantiene el statu quo.</p>
+                        <div class="chart-container">
+                            <canvas id="challengesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold text-[#6A4A3C] mb-4">El Rol del Profesorado</h3>
+                        <p class="mb-4 text-gray-600">El profesorado es el principal agente de cambio. La transformación profunda solo es posible si los docentes asumen una filosofía de trabajo intenso y profundo, reflexionando rigurosamente sobre su propia práctica profesional. Sin este compromiso, no hay un cambio real.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <span class="text-5xl font-black text-[#CC333F]">1</span>
+                                <p class="mt-2 text-sm">Reflexión Rigurosa</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-5xl font-black text-[#CC333F]">2</span>
+                                <p class="mt-2 text-sm">Compromiso Profesional</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-5xl font-black text-[#CC333F]">3</span>
+                                <p class="mt-2 text-sm">Trabajo Profundo</p>
+                            </div>
+                            <div class="text-center">
+                                <span class="text-5xl font-black text-[#CC333F]">4</span>
+                                <p class="mt-2 text-sm">Cambio en el Quehacer Educativo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="pilares" class="bg-white/90 rounded-2xl shadow-2xl p-6 md:p-10 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-[#CC333F] mb-4">La Hoja de Ruta: 3 Pilares para el Avance</h2>
+                        <p class="text-base leading-relaxed text-gray-700 mb-4">
+                            Para que la evaluación avance, debe centrarse en tres pilares fundamentales que guían su práctica y su propósito. Estos principios son la base para construir una evaluación significativa y transformadora.
+                        </p>
+                        <ul class="space-y-2">
+                            <li><strong class="text-[#00A0B0]">Diálogo:</strong> Una plataforma de debate entre todos los agentes de la educación.</li>
+                            <li><strong class="text-[#EB6841]">Comprensión:</strong> Una reflexión que conduce al conocimiento en su sentido más profundo.</li>
+                            <li><strong class="text-[#6A4A3C]">Mejora:</strong> Un cambio que se promueve desde la preparación, el compromiso y la reflexión.</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="pillarsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center my-12 md:my-16">
+                <p class="text-xl md:text-2xl font-bold text-white max-w-4xl mx-auto leading-relaxed">
+                    La evaluación que propone el autor no es una simple investigación, es un <span class="text-[#EDC951]">reto social</span> y un <span class="text-[#EDC951]">compromiso ético</span> con la visión de una sociedad mejor.
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tooltipTitleCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const colors = {
+                blue: '#00A0B0',
+                brown: '#6A4A3C',
+                red: '#CC333F',
+                orange: '#EB6841',
+                yellow: '#EDC951'
+            };
+
+            const renderDisconnectionChart = () => {
+                const ctx = document.getElementById('disconnectionChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Se evalúa mucho', 'Se cambia poco'],
+                        datasets: [{
+                            label: 'Evaluación vs. Cambio',
+                            data: [80, 20],
+                            backgroundColor: [colors.orange, colors.brown],
+                            borderColor: ['#FFFFFF'],
+                            borderWidth: 4,
+                            hoverOffset: 8
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            ...tooltipTitleCallback.plugins,
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        size: 14,
+                                        family: 'Inter'
+                                    },
+                                    color: '#333'
+                                }
+                            }
+                        },
+                        cutout: '60%'
+                    }
+                });
+            };
+
+            const renderChallengesChart = () => {
+                const ctx = document.getElementById('challengesChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Exigencias Sociales', 'Cultura de Competencia', 'Falta de Reflexión Docente'],
+                        datasets: [{
+                            label: 'Grado de Dificultad para el Cambio',
+                            data: [90, 85, 70],
+                            backgroundColor: [colors.red, colors.red, colors.orange],
+                            borderColor: [colors.red, colors.red, colors.orange],
+                            borderWidth: 1,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        ...tooltipTitleCallback,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                max: 100,
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        },
+                        plugins: {
+                            ...tooltipTitleCallback.plugins,
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            };
+
+            const renderPillarsChart = () => {
+                const ctx = document.getElementById('pillarsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Diálogo', 'Comprensión', 'Mejora'],
+                        datasets: [{
+                            label: 'Importancia de los Pilares',
+                            data: [10, 9, 10],
+                            backgroundColor: 'rgba(237, 201, 81, 0.4)',
+                            borderColor: colors.yellow,
+                            pointBackgroundColor: colors.yellow,
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: colors.yellow,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        ...tooltipTitleCallback,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 10,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                angleLines: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                pointLabels: {
+                                    font: {
+                                        size: 14,
+                                        weight: 'bold'
+                                    },
+                                    color: '#333'
+                                }
+                            }
+                        },
+                        plugins: {
+                            ...tooltipTitleCallback.plugins,
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                });
+            };
+
+            renderDisconnectionChart();
+            renderChallengesChart();
+            renderPillarsChart();
+        });
+    </script>
+</body>
+</html>
